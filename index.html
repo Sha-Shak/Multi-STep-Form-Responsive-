@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bithut Register</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+   
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      main {
+        font-family: "Poppins", sans-serif;
+        min-height: 100vh;
+        background: linear-gradient(to right top, #00abe3, #4cd2ff);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .glass {
+        background: white;
+        min-height: 80vh;
+        width: 80%;
+        background: linear-gradient(
+          to right bottom,
+          rgba(255, 255, 255, 0.7),
+          rgba(255, 255, 255, 0.3)
+        );
+        border-radius: 0rem;
+        z-index: 2;
+        backdrop-filter: blur(2rem);
+        display: flex;
+      }
+      .circle1,
+      .circle2 {
+        background: rgb(90, 195, 255);
+        background: linear-gradient(
+          to right bottom,
+          rgba(255, 255, 255, 0.8),
+          rgba(255, 255, 255, 0.3)
+        );
+        height: 20rem;
+        width: 20rem;
+        position: absolute;
+      }
+
+      .circle1 {
+        top: 5%;
+        right: 15%;
+      }
+      .circle2 {
+        bottom: 5%;
+        left: 10%;
+      }
+      .dashboard {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        text-align: center;
+        background: linear-gradient(
+          to right bottom,
+          rgba(255, 255, 255, 0.7),
+          rgba(255, 255, 255, 0.3)
+        );
+        border-radius: 0rem;
+      }
+      .side-img {
+        max-width: 330px;
+      }
+      .link {
+        display: flex;
+        margin: 2rem 0rem;
+        padding: 1rem 5rem;
+        align-items: center;
+      }
+      .link h2 {
+        padding: 0rem 2rem;
+      }
+
+      .regform {
+        flex: 2;
+      }
+
+      .regform {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        background: white;
+        height:735px;
+      }
+
+      /*form css */
+
+      #heading {
+        color: #00abe3;
+        font-weight: normal;
+      }
+
+      #msform {
+        text-align: center;
+        position: relative;
+        margin-top: 20px;
+      }
+
+      #msform fieldset {
+        border: 0 none;
+        border-radius: 0rem;
+        box-sizing: border-box;
+        width: 100%;
+        margin: 0;
+        padding-bottom: 20px;
+        position: relative;
+      }
+
+      .form-card {
+        text-align: left;
+      }
+
+      #msform fieldset:not(:first-of-type) {
+        display: none;
+      }
+
+      #msform input,
+      #msform textarea {
+        padding: 8px 15px 8px 15px;
+        border: 1px solid #ccc;
+        border-radius: 0px;
+        margin-bottom: 15px;
+        margin-top: 2px;
+        width: 100%;
+        box-sizing: border-box;
+
+        color: #2c3e50;
+        background-color: #ffffff;
+        font-size: 16px;
+        letter-spacing: 1px;
+      }
+
+      #msform input:focus,
+      #msform textarea:focus {
+        -moz-box-shadow: none !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+        border: 1px solid #00abe3;
+        outline-width: 0;
+      }
+
+      #msform .action-button {
+        width: 100px;
+        background: #00abe3;
+        font-weight: bold;
+        color: white;
+        border: 0 none;
+        border-radius: 0px;
+        cursor: pointer;
+        padding: 10px 5px;
+        margin: 10px 0px 10px 5px;
+        float: right;
+      }
+
+      #msform .action-button:hover,
+      #msform .action-button:focus {
+        background-color: #00abe3;
+      }
+
+      #msform .action-button-previous {
+        width: 100px;
+        background: #616161;
+        font-weight: bold;
+        color: white;
+        border: 0 none;
+        border-radius: 0px;
+        cursor: pointer;
+        padding: 10px 5px;
+        margin: 10px 5px 10px 0px;
+        float: right;
+      }
+
+      #msform .action-button-previous:hover,
+      #msform .action-button-previous:focus {
+        background-color: #000000;
+      }
+
+      .card {
+        z-index: 0;
+        border: none;
+        position: relative;
+        padding: 30px;
+        background: linear-gradient(
+          to right bottom,
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 0)
+        );
+        height: 735px;
+    overflow-y:scroll;
+      }
+
+      .fs-title {
+        font-size: 25px;
+        color: #00abe3;
+        margin-bottom: 15px;
+        font-weight: normal;
+        text-align: left;
+      }
+
+      .purple-text {
+        color: #00abe3;
+        font-weight: normal;
+      }
+
+      .steps {
+        font-size: 25px;
+        color: gray;
+        margin-bottom: 10px;
+        font-weight: normal;
+        text-align: right;
+      }
+
+      .fieldlabels {
+        color: gray;
+        text-align: left;
+      }
+
+      #progressbar {
+        margin-bottom: 30px;
+        overflow: hidden;
+        color: lightgrey;
+      }
+
+      #progressbar .active {
+        color: #00abe3;
+      }
+
+      #progressbar li {
+        list-style-type: none;
+        font-size: 15px;
+        width: 25%;
+        float: left;
+        position: relative;
+        font-weight: 400;
+      }
+
+      #progressbar #account:before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f518";
+      }
+
+      #progressbar #personal:before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f1ad";
+      }
+
+      #progressbar #payment:before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f007";
+      }
+
+      #progressbar #confirm:before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+
+        content: "\f3d1";
+      }
+
+      #progressbar li:before {
+        width: 50px;
+        height: 50px;
+        line-height: 45px;
+        display: block;
+        font-size: 20px;
+        color: #ffffff;
+        background: lightgray;
+
+        margin: 0 auto 10px auto;
+        padding: 2px;
+      }
+
+      #progressbar li:after {
+        content: "";
+        width: 100%;
+        height: 2px;
+        background: lightgray;
+        position: absolute;
+        left: 0;
+        top: 25px;
+        z-index: -1;
+      }
+
+      #progressbar li.active:before,
+      #progressbar li.active:after {
+        background: #00abe3;
+      }
+
+      .progress {
+        height: 20px;
+      }
+
+      .progress-bar {
+        background-color: #00abe3;
+      }
+
+      .fit-image {
+        width: 100%;
+        object-fit: cover;
+      }
+
+      /*CUSTOM RADIO BUTTON */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .main-container {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      .main-container h2 {
+        margin: 0 0 80px 0;
+        color: #00abe3;
+        font-size: 30px;
+        font-family: "Raleway", sans-serif;
+        font-weight: 400;
+      }
+
+      .radio-buttons {
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .custom-radio input, .sm-block input {
+        display: none;
+      }
+
+      .radio-btn {
+        margin: 7px;
+        width: 127px;
+        height: 127px;
+        border: 3px solid transparent;
+        display: inline-block;
+        position: relative;
+        text-align: center;
+        box-shadow: 0 0 20px #c3c3c3bd;
+        cursor: pointer;
+      }
+      .sm-block-btn {
+        margin: 7px;
+        width: 90px;
+        height: 90px;
+        border: 3px solid transparent;
+        display: inline-block;
+        position: relative;
+        text-align: center;
+        box-shadow: 0 0 20px #c3c3c3bd;
+        cursor: pointer;
+      }
+
+      .radio-btn > i , .sm-block-btn >i{
+        color: #ffffff;
+        background-color: #00abe3;
+        font-size: 20px;
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%) scale(4);
+
+        padding: 3px;
+        transition: 0.2s;
+        pointer-events: none;
+        opacity: 0;
+      }
+
+      .radio-btn .hobbies-icon , .sm-block-btn .hobbies-icon{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .radio-btn .hobbies-icon i , .sm-block-btn .hobbies-icon i{
+        color: #00abe3;
+        line-height: 80px;
+        font-size: 160px;
+      }
+
+      .radio-btn .hobbies-icon h3, .sm-block-btn .hobbies-icon h3 {
+        color: #00abe3;
+        font-family: "Raleway", sans-serif;
+        font-size: 18px;
+        font-weight: 400;
+      }
+
+      .custom-radio input:checked + .radio-btn , .sm-block input:checked + .sm-block-btn{
+        border: 3px solid #00abe3;
+      }
+
+      .custom-radio input:checked + .radio-btn > i , .sm-block input:checked + .sm-block-btn > i{
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+      }
+
+      .hobbies-icon svg {
+        font-size: 40px;
+        margin: 10px;
+        color: #00abe3;
+      }
+      .com-cat {
+        margin: 10px;
+        vertical-align: middle;
+        justify-content: center;
+        transform: translate(0%, 130%);
+      }
+      #progressbar li.active::before {
+        background: #00abe3;
+      }
+      .justify-content-center .col-3 .fa-check {
+        margin-left: 35px;
+        color: #00abe3;
+      }
+
+      .custom-radio h1, .sm-block h1{
+          color: #00abe3;
+      }
+      .cus-rad-fld{
+          width: 90px ;
+          height: 90px ;
+          margin: 7px !important;
+          border: 0.5px solid lightgray !important;
+          display: inline-block;
+          position: relative;
+          text-align: center;
+          box-shadow: 0 0 20px #c3c3c3bd;
+          cursor: pointer;
+      }
+      .tt h4 span{
+    
+    color: #00abe3
+}
+.cus-card{
+    margin: 20px;
+    margin-bottom: 40px;
+    border: 0.1px solid rgba(0,172,227,0.33);
+    padding: 10px 20px;
+}
+.or-class{
+    margin: 10px;
+    color: #00abe3;
+    text
+}
+.cus-card .pack-name{
+    color: #00abe3; 
+    font-size: 22px;
+    font-weight: 200;
+    padding: 10px;
+    padding-left: 0px;
+}
+.cus-card .pack-price{
+    color: #00abe3;
+    font-size: 23px;
+    font-weight: 200;
+}
+.cus-card .pack-price span{
+    font-size: 16px;
+}
+.cus-card .btn-primary{
+    border-radius: 0px;
+    background: #00abe3;
+    border: 0px;
+}
+.justify-content-center .btn-primary.btn-lg{
+     border-radius: 0px;
+    background: #00abe3;
+    border: 0px;
+    padding: 10px 80px; 
+}
+.cus-card{
+  width: 286px;
+}
+@media (max-width: 680px) {
+    .dashboard{
+        display: none;
+    }
+    .glass{
+        width: 100%;
+        padding: 10px;
+    }
+    .card{
+       padding: 20px; 
+        margin: 10px;
+    }
+    #progressbar #confirm:before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f3d1";
+    font-size: 18px
+    }
+    #msform input, #msform textarea {
+    padding: 3px 7px 3px 7px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    margin-bottom: 10px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #2c3e50;
+    background-color: #ffffff;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+    .fs-title{
+        font-size: 16px;
+    }
+    .sm-block-btn {
+    width: 70px !important;
+    height: 70px !important;
+}
+    .sm-block-btn .hobbies-icon h1{
+        font-size: 28px;
+    }
+    .cus-rad-fld {
+    width: 70px !important;
+    height: 70px !important;
+    margin: 7px !important;
+    border: 0.5px solid lightgray !important;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 0 20px #c3c3c3bd;
+    cursor: pointer;
+}
+    #progressbar li {
+    list-style-type: none;
+    font-size: 14px;
+    width: 25%;
+    float: left;
+    position: relative;
+    font-weight: 400;
+}
+    .regform{
+        margin: 10px;
+    }
+    
+    #heading{
+        font-size: 20px;
+        
+    }
+    #progressbar li:before {
+    width: 30px;
+    height: 30px;
+    line-height: 25px;
+    display: block;
+    font-size: 20px;
+    color: #ffffff;
+    background: lightgray;
+    margin: 10px auto 10px auto;
+    padding: 2px;
+}
+    #progressbar {
+    margin-bottom: 0px;
+    overflow: hidden;
+    color: lightgrey;
+}
+    
+    .radio-btn{
+        width: 100px;
+        height: 100px;
+    }
+    
+}
+@media (max-width: 480px) {
+    .dashboard{
+        display: none;
+    }
+    .glass{
+        width: 100%;
+        padding: 0px;
+    }
+    .card{
+       padding: 10px; 
+        margin: 0px;
+    }
+    #progressbar #confirm:before, 
+    #progressbar #personal:before,
+    #progressbar #account:before,
+    #progressbar #payment:before{
+        font-size: 16px
+    }
+    #msform input, #msform textarea {
+    padding: 3px 7px 3px 7px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    margin-bottom: 10px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #2c3e50;
+    background-color: #ffffff;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+    .fs-title{
+        font-size: 16px;
+    }
+    .sm-block-btn {
+    width: 35px !important;
+    height: 35px !important;
+}
+    .sm-block-btn .hobbies-icon h1{
+        font-size: 22px;
+        margin-top: 10px;
+    }
+    .sm-block-btn .hobbies-icon .fa-plus{
+        font-size: 22px;
+        margin-top: 10px;
+    }
+    .cus-rad-fld {
+    width: 35px !important;
+    height: 35px !important;
+    margin: 7px !important;
+    border: 0.5px solid lightgray !important;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 0 5px #c3c3c3bd;
+    cursor: pointer;
+}
+    .row label.sm-block:first-child{
+        margin-left: 10px;
+    }
+    #progressbar li {
+    list-style-type: none;
+    font-size: 14px;
+    width: 25%;
+    float: left;
+    position: relative;
+    font-weight: 400;
+}
+    .regform{
+        margin: 10px;
+    }
+    
+    #heading{
+        font-size: 20px;
+        
+    }
+    #progressbar li:before {
+    width: 30px;
+    height: 30px;
+    line-height: 25px;
+    display: block;
+    font-size: 20px;
+    color: #ffffff;
+    background: lightgray;
+    margin: 10px auto 10px auto;
+    padding: 2px;
+}
+    #progressbar {
+    margin-bottom: 0px;
+    overflow: hidden;
+    color: lightgrey;
+}
+    
+    .radio-btn{
+        width: 90px;
+        height: 90px;
+    }
+    .cus-rad-row{
+        margin-left: 5px
+    }
+    .cus-radio-ot{
+        margin-left: 10px;
+        
+    }
+    .cus-radio-ot .custom-radio .radio-btn .hobbies-icon{
+        margin-top: 0px;
+    }
+    .com-cat-form .com-cat{
+        
+        margin: 10px;
+    vertical-align: middle;
+    justify-content: center;
+    transform: translate(0%, 90%);
+}
+.cus-card{
+        margin: 0px;
+        margin-bottom: 10px;
+    }
+    .justify-content-center .btn-primary.btn-lg {
+    border-radius: 0px;
+    background: #00abe3;
+    border: 0px;
+    padding: 5px 30px;
+}
+    .pack-name{
+        font-size: 22px;
+    }
+    
+}
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="glass">
+        <div class="dashboard">
+          <img class="side-img" src="./img/bitbg.svg" />
+        </div>
+        <div class="regform">
+          <div class="card">
+            <h2 id="heading">Sign Up Your User Account</h2>
+
+            <form id="msform">
+              <!-- progressbar -->
+              <ul id="progressbar">
+                <li class="active" id="account">
+                  <strong>Account</strong>
+                </li>
+                <li id="personal"><strong>Company Type</strong></li>
+                <li id="payment"><strong>Company Details</strong></li>
+                <li id="confirm"><strong>Pricing</strong></li>
+              </ul>
+
+              <br />
+              <!-- fieldsets -->
+              <fieldset>
+                <div class="form-card">
+                  <div class="row">
+                    <div class="col-7">
+                      <h2 class="fs-title">Account Information:</h2>
+                    </div>
+                   
+                  </div>
+                 
+                  <label class="fieldlabels">Company name: *</label>
+                  <input type="text" name="uname" placeholder="Company Name" />
+                   <label class="fieldlabels">Email: *</label> <br>
+                  <input type="email" name="email" placeholder="Email Id" />
+                  <label class="fieldlabels">Password: *</label>
+                  <input type="password" name="pwd" placeholder="Password" />
+                </div>
+                <input
+                  type="button"
+                  name="next"
+                  class="next action-button"
+                  value="Next"
+                />
+              </fieldset>
+              <fieldset>
+                <div class="form-card">
+                  <div class="row">
+                    <div class="col-7">
+                      <h2 class="fs-title">Select Company Type</h2>
+                    </div>
+                    
+                  </div>
+                  <div class="row cus-rad-row">
+                    <label class="custom-radio">
+                      <input type="radio" name="radio" />
+                      <span class="radio-btn">
+                        <div class="hobbies-icon">
+                          <i class="fas fa-industry"></i>
+                          <h3>Industry</h3>
+                        </div>
+                      </span>
+                    </label>
+                    <label class="custom-radio">
+                      <input type="radio" name="radio" />
+                      <span class="radio-btn">
+                        <div class="hobbies-icon">
+                          <i class="fas fa-industry"></i>
+                          <h3>Industry</h3>
+                        </div>
+                      </span>
+                    </label>
+                    <label class="custom-radio">
+                      <input type="radio" name="radio" />
+                      <span class="radio-btn">
+                        <div class="hobbies-icon">
+                          <i class="fas fa-industry"></i>
+                          <h3>Industry</h3>
+                        </div>
+                      </span>
+                    </label>
+                    <label class="custom-radio">
+                      <input type="radio" name="radio" />
+                      <span class="radio-btn">
+                        <div class="hobbies-icon">
+                          <i class="fas fa-industry"></i>
+                          <h3>Industry</h3>
+                        </div>
+                      </span>
+                    </label>
+                    <label class="custom-radio">
+                      <input type="radio" name="radio" />
+                      <span class="radio-btn">
+                        <div class="hobbies-icon">
+                          <i class="fas fa-industry"></i>
+                          <h3>Industry</h3>
+                        </div>
+                      </span>
+                    </label>
+                    <label class="custom-radio">
+                      <input type="radio" name="radio" />
+                      <span class="radio-btn">
+                        <div class="hobbies-icon">
+                          <i class="fas fa-industry"></i>
+                          <h3>Industry</h3>
+                        </div>
+                      </span>
+                    </label>
+                    <label class="custom-radio">
+                      <input type="radio" name="radio" />
+                      <span class="radio-btn">
+                        <div class="hobbies-icon">
+                          <i class="fas fa-industry"></i>
+                          <h3>Industry</h3>
+                        </div>
+                      </span>
+                    </label>
+                    <label class="custom-radio">
+                      <input type="radio" name="radio" />
+                      <span class="radio-btn">
+                        <div class="hobbies-icon">
+                          <i class="fas fa-industry"></i>
+                          <h3>Industry</h3>
+                        </div>
+                      </span>
+                    </label>
+                    <label class="custom-radio">
+                      <input type="radio" name="radio" />
+                      <span class="radio-btn">
+                        <div class="hobbies-icon">
+                          <i class="fas fa-industry"></i>
+                          <h3>Industry</h3>
+                        </div>
+                      </span>
+                    </label>
+                    <label class="custom-radio">
+                      <input type="radio" name="radio" />
+                      <span class="radio-btn">
+                        <div class="hobbies-icon">
+                          <i class="fas fa-industry"></i>
+                          <h3>Industry</h3>
+                        </div>
+                      </span>
+                    </label>
+                  </div>
+                  <div class="row cus-radio-ot">
+                    <label class="custom-radio">
+                      <input type="radio" class="ot-op" name="ot" />
+                      <span class="radio-btn">
+                        <div class="hobbies-icon">
+                          <i class="fas fa-plus"></i>
+                          <h3>Other</h3>
+                        </div>
+                      </span>
+                    </label>
+                    <div class="form-group com-cat-form">
+                      <input
+                        type="text"
+                        class="form-control com-cat"
+                        id="exampleInputPassword1"
+                        placeholder="Company Category"
+                      />
+                    </div>
+                  </div>
+                
+                </div>
+                <input
+                  type="button"
+                  name="next"
+                  class="next action-button"
+                  value="Next"
+                />
+                <input
+                  type="button"
+                  name="previous"
+                  class="previous action-button-previous"
+                  value="Previous"
+                />
+              </fieldset>
+              <fieldset>
+                <div class="form-card">
+                  <div class="row">
+                    <div class="col-7">
+                      <h2 class="fs-title">Company Information:</h2>
+                    </div>
+                  
+                  </div>
+                  <label class="fieldlabels">Owner's Name: *</label>
+                  <input type="text" name="fname" placeholder="Owner's Name" />
+                  <label class="fieldlabels">Owner's Contact No.: *</label>
+                  <input
+                    type="text"
+                    name="phno"
+                    placeholder="Owner's Contact No."
+                  />
+                  <label class="fieldlabels">Company Address: *</label>
+                  <input
+                    type="text"
+                    name="fname"
+                    placeholder="Company Address"
+                  />
+                  <h2 class="fs-title">Select Branch No</h2>
+                  <div class="row">
+                    <label class="sm-block">
+                      <input type="radio" name="radio" checked/>
+                      <span class="sm-block-btn">
+                        <div class="hobbies-icon">
+                          <h1>1</h1>
+                        </div>
+                      </span>
+                    </label>
+                    <label class="sm-block">
+                      <input type="radio" name="radio" />
+                      <span class="sm-block-btn">
+                        <div class="hobbies-icon">
+                          <h1>2</h1>
+                        </div>
+                      </span>
+                    </label>
+                    <label class="sm-block">
+                      <input type="radio" name="radio" />
+                      <span class="sm-block-btn">
+                        <div class="hobbies-icon">
+                          <h1>3</h1>
+                        </div>
+                      </span>
+                    </label>
+                    <label class="sm-block ">
+                      <input type="radio" name="radio" />
+                      <span class="sm-block-btn ">
+                        <div class="hobbies-icon">
+                          <h1>4<h1>
+                        </div>
+                      </span>
+                    </label>
+                    <label class="sm-block">
+                      <input type="radio" name="radio" />
+                      <span class="sm-block-btn">
+                        <div class="hobbies-icon">
+                          <h1>5</h1>
+                        </div>
+                      </span>
+                    </label>
+                    <label class="sm-block ">
+                      <input type="radio" name="radio" class="add-branch"/>
+                      <span class="sm-block-btn">
+                        <div class="hobbies-icon">
+                          <i class="fas fa-plus"></i>
+                        </div>
+                      </span>
+                    </label>
+                    <input type="text" class="cus-rad-fld" name="branch-no">
+                      
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <label class="fieldlabels">Country</label>
+                      <input type="text" name="cntry" placeholder="Country" />
+                    </div>
+                    <div class="col-6">
+                      <label class="fieldlabels">Postal Code</label>
+                      <input
+                        type="text"
+                        name="cntry"
+                        placeholder="Postal Code"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <input
+                  type="button"
+                  name="next"
+                  class="next action-button"
+                  value="Next"
+                />
+                <input
+                  type="button"
+                  name="previous"
+                  class="previous action-button-previous"
+                  value="Previous"
+                />
+              </fieldset>
+              <fieldset>
+                <div class="form-card">
+                  <div class="row">
+                    <div class="col-7">
+                      <h2 class="fs-title">Pricing:</h2>
+                    </div>
+                  
+                  </div>
+                 
+                  <div class="row justify-content-center">
+                      <div class="cus-card">
+                        <h3 class="pack-name"><i class="fas fa-user"></i> Monthly Package</h3>
+                        <h6 class="pack-price"><i class="fa-solid fa-bangladeshi-taka-sign"></i> 3000Tk<span>/month</span></h6>
+                        <button class="btn btn-primary">Buy Now</button>
+
+                      </div>
+                      <div class="cus-card">
+                        <h2 class="pack-name"><i class="fas fa-user-tie"></i> Yearly Package</h2>
+                        <h6 class="pack-price">2000Tk<span>/year</span></h6>
+                        <button class="btn btn-primary">Buy Now</button>
+
+                      </div>
+                  </div>
+                  <div class="row justify-content-center tt"> 
+                   <h4><span>Or,</span></h4>
+                  </div>
+                  <div class="row justify-content-center">
+                    <button class="btn btn-primary btn-lg">Start Free 1 month Trial</button>
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"
+      integrity="sha512-Tn2m0TIpgVyTzzvmxLNuqbSJH3JP8jm+Cy3hvHrW7ndTDcJ1w5mBiksqDBb8GpE2ksktFvDB/ykZ0mDpsZj20w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      $(document).ready(function () {
+        var current_fs, next_fs, previous_fs; //fieldsets
+        var opacity;
+        var current = 1;
+        var steps = $("fieldset").length;
+
+        setProgressBar(current);
+
+        $(".next").click(function () {
+          current_fs = $(this).parent();
+          next_fs = $(this).parent().next();
+
+          //Add Class Active
+          $("#progressbar li")
+            .eq($("fieldset").index(next_fs))
+            .addClass("active");
+
+          //show the next fieldset
+          next_fs.show();
+          //hide the current fieldset with style
+          current_fs.animate(
+            { opacity: 0 },
+            {
+              step: function (now) {
+                // for making fielset appear animation
+                opacity = 1 - now;
+
+                current_fs.css({
+                  display: "none",
+                  position: "relative",
+                });
+                next_fs.css({ opacity: opacity });
+              },
+              duration: 500,
+            }
+          );
+          setProgressBar(++current);
+          
+        });
+
+        $(".previous").click(function () {
+          current_fs = $(this).parent();
+          previous_fs = $(this).parent().prev();
+
+          //Remove class active
+          $("#progressbar li")
+            .eq($("fieldset").index(current_fs))
+            .removeClass("active");
+
+          //show the previous fieldset
+          previous_fs.show();
+
+          //hide the current fieldset with style
+          current_fs.animate(
+            { opacity: 0 },
+            {
+              step: function (now) {
+                // for making fielset appear animation
+                opacity = 1 - now;
+
+                current_fs.css({
+                  display: "none",
+                  position: "relative",
+                });
+                previous_fs.css({ opacity: opacity });
+              },
+              duration: 500,
+            }
+          );
+          setProgressBar(--current);
+        });
+
+        function setProgressBar(curStep) {
+          var percent = parseFloat(100 / steps) * curStep;
+          percent = percent.toFixed();
+          $(".progress-bar").css("width", percent + "%");
+        }
+
+        $(".submit").click(function () {
+          return false;
+        });
+      });
+    </script>
+    <script>
+      $(document).ready(function () {
+        $(".com-cat-form").attr("style", "display:none");
+        $(".ot-op").click(function () {
+          $(".com-cat-form").show();
+        });
+      });
+    </script>
+     <script>
+      $(document).ready(function () {
+        $(".cus-rad-fld").attr("style", "display:none");
+        $(".add-branch").click(function () {
+          //alert("D");
+          $(".cus-rad-fld").show();
+          $(".cus-rad-fld").focus();
+        });
+      });
+    </script>
+   
+  </body>
+</html>
